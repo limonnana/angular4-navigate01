@@ -1,0 +1,17 @@
+<div class="container">
+<form (ngSubmit)="saveProduct(newProductForm.value)" #newProductForm="ngForm">
+  <div class="form-group">
+    <label for="product.name">Product Name
+      <input type="text"  class="form-control" name="product.name" required [(ngModel)]="product.name">
+      </label>
+  </div>
+
+   
+  <button type="submit" [disabled]="!newProductForm.form.valid">Submit</button>
+</form>
+<div [hidden]="!newProductForm.form.valid">
+  {{testResponse | json}}
+</div>
+ 
+ 
+</div>
