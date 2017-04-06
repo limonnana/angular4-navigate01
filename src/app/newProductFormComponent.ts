@@ -7,7 +7,7 @@ import { HttpService} from './http.service';
 @Component({selector: 'newProductForm', templateUrl: 'app/newProductFormComponent.html'})
 export class NewProductFormComponent{
 
-private testResponse:Response;
+private dataJson : JSON;
 
 constructor(private _httpService: HttpService) {}
   
@@ -20,9 +20,9 @@ constructor(private _httpService: HttpService) {}
 
  sendDataToServer(dataFromForm : any) {
 
-    // this._httpService.getAllProducts().subscribe(data => this.testResponse = data);
-    //this._httpService.createFood(dataFromForm).subscribe(data => this.testResponse = data);
-    this._httpService.sendData01(dataFromForm);
+    // this._httpService.getAllProducts().subscribe(data => this.dataJson = data);
+  
+    this._httpService.sendData01(dataFromForm).subscribe(data => this.dataJson = data);
   }
 
 

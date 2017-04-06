@@ -10,8 +10,8 @@
   <button type="submit" [disabled]="!newProductForm.form.valid">Submit</button>
 </form>
 <div [hidden]="!newProductForm.form.valid">
-  {{testResponse | json}}
+ <br><br> {{dataJson?.id}}   {{dataJson?.name}}
 </div>
- 
+  
  
 </div>

@@ -1,4 +1,6 @@
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
@@ -29,24 +31,22 @@ export class HttpService {
            return body;
 }
 
- sendData01(data: any): Observable<Object> {
+ sendData01(data: any) {
 
       //  let encoded_data = JSON.stringify({ data });
         let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
         let options = new RequestOptions({ headers: headers, method: "post"});
-        let body = this._http.post(this.saveProductURL ,data, options).map((res: Response) => res.json);
-        this._http.post(this.saveProductURL ,data, options).subscribe(
-            data => {
-                      this.testResponse = data ;
-                     
-                      console.log("I SEE DATA HERE: ", this.testResponse.text());
-                     }
-        );
-           return body;
-}
+       return this._http.post(this.saveProductURL ,data, options).map(data => data.json());
+  }
 
 
-   getAllProducts() {
+  private handleError (error: Response) {
+        console.error(error);
+        return Observable.throw(error.json().error || ' error');
+    }
+
+
+ getAllProducts() {
     return this._http.get(this._url).map((res:Response) => res.json());
     //this._http.get(this._url).subscribe((res:Response) => this.people = res.json());
   }
@@ -66,12 +66,7 @@ testRequest() {
       });
 }
 
-createFood(food: any) {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify(food);
-    return this._http.post(this.saveProductURL, body, headers).map((res: Response) => res.json());
-  }
+
     
 
 }
