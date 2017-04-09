@@ -1,1 +1,25 @@
-<h3>Product list template</h3>
+<h3>List template</h3>
+
+<div class="container">
+ {{dataJson | json}} 
+
+<br><br><br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th> Name</th>
+     </tr>
+  </thead>
+ <tbody>
+    <tr *ngFor="let product of dataJson">
+     <td>{{product.id}}</td>
+     <td>{{product.name}}</td>
+</tbody>
+</table>
+</div>
+
+
+
+
