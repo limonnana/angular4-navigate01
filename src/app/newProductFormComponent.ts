@@ -3,13 +3,14 @@ import { Product }    from './app.Product';
 import {NgModule} from "@angular/core";
 import { NgForm } from '@angular/forms';
 import { HttpService} from './http.service';
+import {Router } from '@angular/router';
 
 @Component({selector: 'newProductForm', templateUrl: 'app/newProductFormComponent.html'})
 export class NewProductFormComponent{
 
 private dataJson : JSON;
 
-constructor(private _httpService: HttpService) {}
+constructor(private _httpService: HttpService, private router: Router ) {}
   
   product: Object = {};
   
@@ -23,6 +24,9 @@ constructor(private _httpService: HttpService) {}
     // this._httpService.getAllProducts().subscribe(data => this.dataJson = data);
   
     this._httpService.sendData01(dataFromForm).subscribe(data => this.dataJson = data);
+     //  redirectTo: '/products',  
+   //  appRoutes.navigate(['products']);  
+   this.router.navigate(['products']); 
   }
 
 

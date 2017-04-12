@@ -1,7 +1,7 @@
 <h3>List template</h3>
 
 <div class="container">
- {{dataJson | json}} 
+
 
 <br><br><br>
 
@@ -10,12 +10,19 @@
     <tr>
       <th>Id</th>
       <th> Name</th>
+       <th> </th>
+        <th> </th>
+      
      </tr>
   </thead>
  <tbody>
     <tr *ngFor="let product of dataJson">
      <td>{{product.id}}</td>
      <td>{{product.name}}</td>
+      <td><a [routerLink]="['/productDetail', product.id]">Edit</a> </td>
+     
+      <td><a [routerLink]="['/productDelete', product.id]">Delete</a>  &nbsp; {{product.id}}</td>
+
 </tbody>
 </table>
 </div>

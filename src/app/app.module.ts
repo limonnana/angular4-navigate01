@@ -19,7 +19,7 @@ import { HttpService } from './http.service';
 const appRoutes: Routes = [
   { path: 'product-center', component: ProductCenterComponent },
   { path: 'newProduct', component: NewProductComponent },
-  { path: 'product/:id',      component: ProductDetailComponent },
+  { path: 'productDetail/:id',      component: ProductDetailComponent },
   {
     path: 'products',
     component: ProductListComponent,

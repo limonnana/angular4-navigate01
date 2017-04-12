@@ -1,9 +1,10 @@
- 
-  
-  <div class="nav navbar-toggleable-sm">
-  <li [routerLinkActive]="['active']"> <a [routerLink]="['product-center']">Product Center</a></li>
-  <li [routerLinkActive]="['active']"> <a [routerLink]="['products']">Products</a></li>
-   <li [routerLinkActive]="['active']"> <a [routerLink]="['newProduct']">New Product</a></li>
-</div>
+
+ <div class="collapse navbar-collapse">
+ <ul class="nav navbar-nav">
+  <li [routerLinkActive]="['active']" class="nav-item"> <a [routerLink]="['product-center']" class="nav-link">Product Center</a></li>
+  <li [routerLinkActive]="['active']" class="nav-item"> <a [routerLink]="['products']" class="nav-link">Products</a></li>
+   <li [routerLinkActive]="['active']" class="nav-item"> <a [routerLink]="['newProduct']" class="nav-link">New Product</a></li>
+   </ul>
+ </div>
 
   <router-outlet></router-outlet>
